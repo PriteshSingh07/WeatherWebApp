@@ -1,7 +1,7 @@
 export default async function handler (req, res){
     const api = process.env.API_KEY;
 
-    const baseCity = req.query.city || 'Kolkata'
+    const baseCity = req.query.city || ''
 
     if(!api){
         throw new Error("No API KEY")
