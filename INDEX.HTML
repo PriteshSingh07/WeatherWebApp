@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="card">
+        <div class="heading">
+            <h1>Weather Web</h1>
+        </div>
         <div class="search">
             <input type="text" placeholder="Enter city name" spellcheck="false">
             <button><img src="images/search.png"></button>
@@ -43,7 +46,7 @@
     </div>
 
 <script>
-    const apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    const apiKey = "be283e7f999ff59e5729d380e8155551";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
     const searchBox = document.querySelector(".search input");
     const searchBtn = document.querySelector(".search button");
@@ -56,7 +59,8 @@
             document.querySelector(".weather").style.display = "none";
         }
         else{
-            var data = await response.json();
+
+        let data = await response.json();
 
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
@@ -88,11 +92,20 @@
         // console.log("temp:" + data.main.temp);
         
     }
-    searchBtn.addEventListener("click", ()=>{
-        checkWeather(searchBox.value);
+
+    // console.log("Running...");
+    
+
+    searchBox.addEventListener("keydown", (event)=> {
+        // console.log(event);
+        if(event.code === "Enter"){
+            if(!searchBox.value){
+                throw new Error("No City Provided")
+            }
+            checkWeather(searchBox.value);
+        }
     })
 
-    
     
 
 </script>
