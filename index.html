@@ -102,7 +102,9 @@
         // console.log(event);
         if(event.code === "Enter"){
             if(!searchBox.value){
-                throw new Error("No City Provided")
+                // throw new Error("No City Provided")
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".weather").style.display = "none";
             }
             checkWeather(searchBox.value);
         }
