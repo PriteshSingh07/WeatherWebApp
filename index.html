@@ -57,8 +57,7 @@
         const response = await fetch(`/api/fetch-data?city=${city}`)
         let data = await response.json();
 
-        console.log("In index: ", data);
-        console.log("In index: ", data);
+        // console.log("In index: ", data);
         
         if(!(data.success === undefined)){
             document.querySelector(".error").style.display = "block";
