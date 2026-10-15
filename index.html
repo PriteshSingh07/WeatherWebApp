@@ -57,7 +57,7 @@
         const response = await fetch(`/api/fetch-data?city=${city}`)
         let data = await response.json();
 
-        console.log("index: ", response);
+        console.log("index: ", data);
         
         if(response.status == 404){
             document.querySelector(".error").style.display = "block";
