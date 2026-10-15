@@ -57,12 +57,12 @@
         const response = await fetch(`/api/fetch-data?city=${city}`)
         let data = await response.json();
 
-        console.log("index: ", data);
+        // console.log("In index: ", data);
         
         if(response.status == 404){
             document.querySelector(".error").style.display = "block";
             document.querySelector(".weather").style.display = "none";
-            document.querySelector(".error p").textContent = data.message;
+            document.querySelector(".error p").textContent = data.message.toUpperCase();
         }
         else{
 
