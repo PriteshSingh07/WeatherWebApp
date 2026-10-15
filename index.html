@@ -55,7 +55,7 @@
     async function checkWeather(city) {
         // const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         const response = await fetch(`/api/fetch-data?city=${city}`)
-        console.log("index: ", response);
+        console.log("index: ", response.cod);
         
         if(String(`${response.status}`) == String(404)){
             document.querySelector(".error").style.display = "block";
