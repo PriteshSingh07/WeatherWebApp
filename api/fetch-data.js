@@ -13,14 +13,14 @@ export default async function handler (req, res){
         const data = await response.json()
         console.log("Api response: ", data);
         
-        if(response.cod == 404){
+        if(data.cod == 404){
             // return res.status(404).json(data)
-            return
+            return res.status(404)
         }
 
         // const data = await response.json()
     
-        return res.status(404).json(response.cod)
+        return res.status(200).json(data)
     } catch (error) {
         throw new Error('Fetching weather data failed')
     }
