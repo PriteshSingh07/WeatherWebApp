@@ -13,7 +13,7 @@ export default async function handler (req, res){
         const data = await response.json()
         console.log("Api response: ", data);
         
-        if(data.cod == 404){
+        if(data.cod == "404"){
             // return res.status(404).json(data)
             return res.status(404)
         }
