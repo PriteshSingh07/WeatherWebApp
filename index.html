@@ -59,7 +59,7 @@
 
         // console.log("In index: ", data);
         
-        if(response.status == 404){
+        if(!data.success){
             document.querySelector(".error").style.display = "block";
             document.querySelector(".weather").style.display = "none";
             document.querySelector(".error p").textContent = data.message.toUpperCase();

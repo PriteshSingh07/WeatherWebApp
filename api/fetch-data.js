@@ -10,11 +10,12 @@ export default async function handler (req, res){
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?&units=metric&q=${baseCity}&appid=${api}`)
 
-        const data = await response.json()
+        let data = await response.json()
         
         if(data.cod == "404"){
+            data.success = false
             // return res.status(404).json(data)
-            return res.status(404).json(data)
+            return res.status(200).json(data)
         }
 
         // const data = await response.json()
