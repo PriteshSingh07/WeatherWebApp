@@ -14,7 +14,7 @@ export default async function handler (req, res){
         // console.log("Api response: ", response.cod);
         
         if(response.cod == 404){
-            return res.status(200).json(data)
+            return res.status(404).json(data)
         }
 
         const data = await response.json()
