@@ -60,7 +60,7 @@
         console.log("In index: ", data);
         console.log("In index: ", data);
         
-        if(!data.success){
+        if(!(data.success === undefined)){
             document.querySelector(".error").style.display = "block";
             document.querySelector(".weather").style.display = "none";
             document.querySelector(".error p").textContent = data.message.toUpperCase();
