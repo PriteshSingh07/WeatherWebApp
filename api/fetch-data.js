@@ -15,7 +15,7 @@ export default async function handler (req, res){
         
         if(data.cod == "404"){
             // return res.status(404).json(data)
-            return res.status(404)
+            return res.status(404).json({error: "city not found"})
         }
 
         // const data = await response.json()
