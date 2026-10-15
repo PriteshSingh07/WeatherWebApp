@@ -1,28 +1,26 @@
 export default async function handler (req, res){
     const api = process.env.API_KEY;
+    const baseCity = req.query.city || 'kolkata';
 
-    const baseCity = req.query.city || 'kolkata'
-
-    if(!api){
-        throw new Error("No API KEY")
+    if (!api) {
+        return res.status(500).json({ error: "No API KEY configured" });
     }
 
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?&units=metric&q=${baseCity}&appid=${api}`)
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${baseCity}&appid=${api}`);
+        
+        const data = await response.json();
 
-        
-        // console.log("Api response: ", response.cod);
-        
-        if(response.cod == 404){
-            // return res.status(404).json(data)
-            return
+        // OpenWeatherMap returns cod as a string (e.g., "404") or number (404) for errors
+        if (data.cod != 200) {
+            return res.status(Number(data.cod) || 400).json({ 
+                error: data.message || 'City not found' 
+            });
         }
-
-        const data = await response.json()
     
-        return res.status(404).json(response.cod)
+        // Return the successful weather data with a 200 status
+        return res.status(200).json(data);
     } catch (error) {
-        throw new Error('Fetching weather data failed')
+        return res.status(500).json({ error: 'Fetching weather data failed' });
     }
-    
 }
