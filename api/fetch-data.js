@@ -15,6 +15,7 @@ export default async function handler (req, res){
         
         if(response.cod == 404){
             // return res.status(404).json(data)
+            return
         }
 
         const data = await response.json()
