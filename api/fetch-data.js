@@ -11,9 +11,9 @@ export default async function handler (req, res){
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?&units=metric&q=${baseCity}&appid=${api}`)
 
         
+        console.log("Api response: ", response);
         
         if(response.status == 404){
-            console.log("Api response: ", response);
             // return res.status(400)
         }
 
