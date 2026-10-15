@@ -20,7 +20,7 @@ export default async function handler (req, res){
 
         const data = await response.json()
     
-        return res.status(200).json(response.cod)
+        return res.status(404).json(response.cod)
     } catch (error) {
         throw new Error('Fetching weather data failed')
     }
