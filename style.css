@@ -21,7 +21,7 @@ body {
     /* Animated gradient applied to the body */
     background: linear-gradient(-45deg, #0f172a, #1e1b4b, #4cc09f, #00feba, #463c8a);
     background-size: 400% 400%;
-    animation: gradientAnimation 4s ease-in-out infinite;
+    animation: gradientAnimation 4s ease-in infinite;
     min-height: 100vh;
     display: flex;
     justify-content: center;
